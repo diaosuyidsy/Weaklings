@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour {
 	//player controls
@@ -134,5 +135,36 @@ public class CharacterController2D : MonoBehaviour {
 		_rigidbody.isKinematic = false;
 	}
 
+	public void dealDamage(int damage)
+	{
+		if (playerCanMove) {
+			playerHealth -= damage;
+		}
+		if (playerHealth <= 0) {
+			StartCoroutine (killPlayer ());
+		}
+	}
 
+	IEnumerator killPlayer()
+	{
+		if (playerCanMove) {
+			FreezeMotion ();
+
+			yield return new WaitForSeconds (2f);
+
+			if (GameManager.gm) {
+				GameManager.gm.resetGame ();
+			} else {
+				SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+			}
+		}
+	}
+
+	public void respawn(Vector3 loc)
+	{
+		UnFreezeMotion ();
+		playerHealth = 1;
+		_transform.parent = null;
+		_transform.position = loc;
+	}
 }
