@@ -1,24 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DeathZone.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraFollow2D.cs">
     <Files>
-      <File FileName="Assets/Scripts/CharacterController2D.cs" Line="151" Column="17" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="16" Column="9" />
-      <File FileName="Assets/Scripts/DeathZone.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/CameraFollow2D.cs" Line="7" Column="29" />
+      <File FileName="Assets/Scripts/CharacterController2D.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DeathZone.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Weakling" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="DeathZone.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

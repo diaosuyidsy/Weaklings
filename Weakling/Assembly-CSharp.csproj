@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraBackground.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\DeathZone.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
