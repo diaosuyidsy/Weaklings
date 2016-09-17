@@ -58,18 +58,18 @@ public class EnemyMovements : MonoBehaviour {
 
 		if(enemyHealth <= 0)
 		{
-			StartCoroutine (killEnemy ());
+//			StartCoroutine (killEnemy ());
 		}
 	}
 
-	IEnumerator killEnemy()
-	{
-			yield return new WaitForSeconds (2f);
-
-			if (GameManager.gm) {
-			GameManager.gm.respawnEnemy();
-			} 
-	}
+//	IEnumerator killEnemy()
+//	{
+//			yield return new WaitForSeconds (2f);
+//
+//			if (GameManager.gm) {
+//			GameManager.gm.respawnEnemy();
+//			} 
+//	}
 
 	/*void OnTriggerStay(Collider other){
 		if (other.gameObject == player) {
