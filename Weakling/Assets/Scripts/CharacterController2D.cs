@@ -33,8 +33,6 @@ public class CharacterController2D : MonoBehaviour {
 
 	int _playerLayer;
 
-	int _platformLayer;
-
 	void Awake(){
 		_transform = GetComponent<Transform> ();
 		_rigidbody = GetComponent<Rigidbody2D> ();
@@ -45,7 +43,6 @@ public class CharacterController2D : MonoBehaviour {
 
 		_playerLayer = this.gameObject.layer;
 
-		_platformLayer = LayerMask.NameToLayer("Platform");
 	}
 		
 	// Update is called once per frame

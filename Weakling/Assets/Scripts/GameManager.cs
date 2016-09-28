@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 
 	//private variables
 	public GameObject _player;
+	public GameObject _enemy;
 	Vector3 _spawnLocation;
 
 	//UI elements

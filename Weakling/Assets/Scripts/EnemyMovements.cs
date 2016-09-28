@@ -3,96 +3,79 @@ using System.Collections;
 
 public class EnemyMovements : MonoBehaviour {
 	
-	public float moveSpeed = 1.0f;
-	public int enemyHealth = 1;
+	[Range(0.1f, 10f)]
+	public float radius = 1;
 
-	public Vector3 initialPosition;
-	public bool playerInSight;
-	public Vector2 personalLastSight;
+	[Range(1.0f, 360f)]
+	public int fov = 90;//90 degrees
 
-	public double distance;
+	public Vector2 direction = Vector2.up;
+
+	public Transform testPoint;
 
 	private GameObject player;
-	public Transform groundCheck;
-	public LayerMask whatIsGround;
 
-	[HideInInspector]
-	bool enemyCanMove = true;
+	private Vector2 leftLineFOV;
+	private Vector2 rightLineFOV;
 
-	//store references to components on the gameObject
-	Transform _transform;
-	Rigidbody2D _rigidbody;
-	bool isGrounded = false;
-	float _vx;
-	float _vy;
-
-	int _enemyLayer;
-
-	int _platformLayer;
+	public GameObject exMark;
 
 	void Awake(){
-		_transform = GetComponent<Transform> ();
-		_rigidbody = GetComponent<Rigidbody2D> ();
-
-		if (_rigidbody == null) {
-			Debug.LogError ("Rigidbody2D component is missing from this game object");
-		}
-
-		_enemyLayer = this.gameObject.layer;
-
-		_platformLayer = LayerMask.NameToLayer("Platform");
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
-	// Update is called once per frame
-	void Update () {
-		isGrounded = Physics2D.Linecast (_transform.position, groundCheck.position, whatIsGround);
-
-	
+	void Update() {
+		if(testPoint != null) {
+			rightLineFOV = RotatePointAroundTransform(direction.normalized*radius, -fov/2);
+			leftLineFOV = RotatePointAroundTransform(direction.normalized*radius, fov/2);
+		}
+		exMark.SetActive (InsideFOV(player.transform.position));
 	}
 
-	public void dealDamage(int damage)
-	{
-		if (enemyCanMove) {
-			enemyHealth -= damage;
+	public bool InsideFOV(Vector3 playerPos) {
+		float squaredDistance = ((playerPos.x - transform.position.x)*(playerPos.x - transform.position.x)) + ((playerPos.y-transform.position.y)*(playerPos.y-transform.position.y));
+		Debug.Log(squaredDistance);
+		if(radius * radius >= squaredDistance) {
+			float signLeftLine = (leftLineFOV.x) * (playerPos.y - transform.position.y) - (leftLineFOV.y) * (playerPos.x-transform.position.x);
+			float signRightLine = (rightLineFOV.x) * (playerPos.y - transform.position.y) - (rightLineFOV.y) * (playerPos.x-transform.position.x);
+			if(fov <= 180) {
+				Debug.Log(signLeftLine + " " + signRightLine);
+				if(signLeftLine <= 0 && signRightLine >= 0)
+					return true;
+			} else {
+				if(!(signLeftLine >= 0 && signRightLine <= 0))
+					return true;
+			}
 		}
-
-		if(enemyHealth <= 0)
-		{
-//			StartCoroutine (killEnemy ());
-		}
+		return false;
 	}
 
-//	IEnumerator killEnemy()
-//	{
-//			yield return new WaitForSeconds (2f);
-//
-//			if (GameManager.gm) {
-//			GameManager.gm.respawnEnemy();
-//			} 
-//	}
-
-	/*void OnTriggerStay(Collider other){
-		if (other.gameObject == player) {
-			playerInSight == false;
-
-			Vector3 direction = other.transform.position - transform.position;
-			float angle = Vector3.Angle (direction, transform.forward);
-
-
-		}
-
+	//Rotate point (px, py) around point (ox, oy) by angle theta you'll get:
+	//p'x = cos(theta) * (px-ox) - sin(theta) * (py-oy) + ox
+	//p'y = sin(theta) * (px-ox) + cos(theta) * (py-oy) + oy
+	private Vector2 RotatePointAroundTransform(Vector2 p, float angles) {
+		return new Vector2(Mathf.Cos((angles)  * Mathf.Deg2Rad) * (p.x) - Mathf.Sin((angles) * Mathf.Deg2Rad) * (p.y),
+			Mathf.Sin((angles)  * Mathf.Deg2Rad) * (p.x) + Mathf.Cos((angles) * Mathf.Deg2Rad) * (p.y));
 	}
 
-	void OnTriggerExit(Collider other){
-		if (other.gameObject == player)
-			playerInSight = false;
-	}*/
+	void OnDrawGizmos() {
+		Gizmos.color = Color.green;
+		Gizmos.DrawRay(transform.position, direction.normalized*radius);
 
-	public void respawn(Vector3 loc)
-	{
-		
-		enemyHealth = 1;
-		_transform.parent = null;
-		_transform.position = loc;
+		rightLineFOV = RotatePointAroundTransform(direction.normalized*radius, -fov/2);
+		leftLineFOV = RotatePointAroundTransform(direction.normalized*radius, fov/2);
+
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawRay(transform.position, rightLineFOV);
+		Gizmos.DrawRay(transform.position, leftLineFOV);
+
+		Vector2 p = rightLineFOV;
+		for(int i = 1; i <= 20; i++) {
+			float step = fov/20;
+			Vector2 p1 = RotatePointAroundTransform(direction.normalized*radius, -fov/2 + step*(i));
+			Gizmos.DrawRay(new Vector2(transform.position.x, transform.position.y) + p, p1-p);
+			p = p1;
+		}
+		Gizmos.DrawRay(new Vector2(transform.position.x, transform.position.y) + p, leftLineFOV - p);
 	}
 }
