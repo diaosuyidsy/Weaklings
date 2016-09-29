@@ -34,12 +34,12 @@ public class EnemyMovements : MonoBehaviour {
 
 	public bool InsideFOV(Vector3 playerPos) {
 		float squaredDistance = ((playerPos.x - transform.position.x)*(playerPos.x - transform.position.x)) + ((playerPos.y-transform.position.y)*(playerPos.y-transform.position.y));
-		Debug.Log(squaredDistance);
+		//Debug.Log(squaredDistance);
 		if(radius * radius >= squaredDistance) {
 			float signLeftLine = (leftLineFOV.x) * (playerPos.y - transform.position.y) - (leftLineFOV.y) * (playerPos.x-transform.position.x);
 			float signRightLine = (rightLineFOV.x) * (playerPos.y - transform.position.y) - (rightLineFOV.y) * (playerPos.x-transform.position.x);
 			if(fov <= 180) {
-				Debug.Log(signLeftLine + " " + signRightLine);
+				//Debug.Log(signLeftLine + " " + signRightLine);
 				if(signLeftLine <= 0 && signRightLine >= 0)
 					return true;
 			} else {

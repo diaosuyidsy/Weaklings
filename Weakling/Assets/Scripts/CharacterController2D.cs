@@ -62,7 +62,10 @@ public class CharacterController2D : MonoBehaviour {
 
 		_vy = _rigidbody.velocity.y;
 
-		isGrounded = Physics2D.Linecast (_transform.position, groundCheck.position, whatIsGround);
+		//check if player is standing on ground
+		isGrounded = Physics2D.Linecast (_transform.position, groundCheck.position, whatIsGround) ||
+			Physics2D.Linecast (_transform.position + new Vector3(0.25f, 0, 0), groundCheck.position + new Vector3(0.25f, 0, 0), whatIsGround) ||
+			Physics2D.Linecast (_transform.position - new Vector3(0.25f, 0, 0), groundCheck.position - new Vector3(0.25f, 0, 0), whatIsGround);
 		
 		if(isGrounded && Input.GetButtonDown("Jump"))
 		{
@@ -79,7 +82,7 @@ public class CharacterController2D : MonoBehaviour {
 			_vy = 0f;
 		}
 
-		_rigidbody.velocity = new Vector2 (_vx * moveSpeed, _vy);
+		_rigidbody.velocity = new Vector2(_vx * moveSpeed, _vy);
 
 	}
 
@@ -105,14 +108,20 @@ public class CharacterController2D : MonoBehaviour {
 	//if the player collide with a moving platform, then
 	//make the player a child of that platform so that
 	//it could move with the platform
-	void onCollisionEnter2D(Collision2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "MovingPlatform") {
 			this.transform.parent = other.transform;
 		}
+		//if collide with harmful object, deal damage to player
+		//and move back a little bit.
+		if (other.gameObject.tag == "Harmful") {
+			Debug.Log ("on hit enemy");
+			_rigidbody.AddForce(new Vector2(-1500, 0));
+		}
 	}
 
-	void onCollisionExit2D(Collision2D other)
+	void OnCollisionExit2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "MovingPlatform") {
 			this.transform.parent = null;

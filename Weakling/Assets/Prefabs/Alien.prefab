@@ -12,9 +12,9 @@ GameObject:
   - 50: {fileID: 5004040}
   - 58: {fileID: 5859848}
   - 114: {fileID: 11435904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Alien
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.264, z: 0}
+  m_LocalPosition: {x: 0, y: -0.278, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 430124}
@@ -84,12 +84,12 @@ CircleCollider2D:
   m_GameObject: {fileID: 131342}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69b3921a46f464678b5b81cb3841864a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.04}
   serializedVersion: 2
-  m_Radius: 0.24
+  m_Radius: 0.21603489
 --- !u!114 &11435904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +144,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131342}
