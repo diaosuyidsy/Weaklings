@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\DeathZone.cs" />
+     <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyMovements.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
  <Reference Include="UnityEngine.UI">

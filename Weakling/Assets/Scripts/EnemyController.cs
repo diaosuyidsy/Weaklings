@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class CharacterController2D : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 	//player controls
 	[Range(0.0f, 10.0f)]
 	public float moveSpeed = 3.0f;
@@ -10,13 +10,11 @@ public class CharacterController2D : MonoBehaviour {
 	public float jumpForce = 600.0f;
 
 	// player health
-	public int playerHealth = 1;
-	 
+	public int playerHealth = 100;
+
 	public LayerMask whatIsGround;
-	public LayerMask whatCanBePossessed;
 
 	public Transform groundCheck;
-	public Transform possessionCheck;
 
 	[HideInInspector]
 	bool playerCanMove = true;
@@ -42,23 +40,21 @@ public class CharacterController2D : MonoBehaviour {
 		if (_rigidbody == null) {
 			Debug.LogError ("Rigidbody2D component is missing from this game object");
 		}
+	}
 
+	void Start(){
+		//set game object tag and layer to player.
+		this.gameObject.layer = 10;
 		_playerLayer = this.gameObject.layer;
 
+		this.gameObject.tag = "Player";
 	}
-		
+
 	// Update is called once per frame
 	void Update () {
 		//exit if player can't move or game is paused
 		if (!playerCanMove || (Time.timeScale == 0f)) {
 			return;
-		}
-
-		//Check if player can possess a enemy
-		if(Input.GetButtonDown("Fire1") && (bool)Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed)
-			&& Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed).transform.localScale.x * _transform.localScale.x < 0){
-			Debug.Log ("biu biu biu biu biu biu");
-			onPossesionStart (Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed));
 		}
 
 		_vx = Input.GetAxisRaw ("Horizontal");
@@ -75,7 +71,7 @@ public class CharacterController2D : MonoBehaviour {
 		isGrounded = Physics2D.Linecast (_transform.position, groundCheck.position, whatIsGround) ||
 			Physics2D.Linecast (_transform.position + new Vector3(0.25f, 0, 0), groundCheck.position + new Vector3(0.25f, 0, 0), whatIsGround) ||
 			Physics2D.Linecast (_transform.position - new Vector3(0.25f, 0, 0), groundCheck.position - new Vector3(0.25f, 0, 0), whatIsGround);
-		
+
 		if(isGrounded && Input.GetButtonDown("Jump"))
 		{
 			_vy = 0f;
@@ -84,8 +80,8 @@ public class CharacterController2D : MonoBehaviour {
 			//play the jumping sound, need to be done
 		}
 
-//		 If the player stops jumping mid jump and player is not yet falling
-//		 then set the vertical velocity to 0 (he will start to fall from gravity)
+		//		 If the player stops jumping mid jump and player is not yet falling
+		//		 then set the vertical velocity to 0 (he will start to fall from gravity)
 		if(Input.GetButtonUp("Jump") && _vy>0f)
 		{
 			_vy = 0f;
@@ -114,23 +110,6 @@ public class CharacterController2D : MonoBehaviour {
 
 	}
 
-	//when player possess the enemy 
-	void onPossesionStart(RaycastHit2D enemy)
-	{
-		this.transform.parent = enemy.transform;
-		//disable everything in player
-		this.GetComponent<SpriteRenderer>().enabled = false;
-		this.GetComponent<CharacterController2D> ().enabled = false;
-		_rigidbody.Sleep ();
-		this.GetComponent<CircleCollider2D> ().enabled = false;
-		//enable enemy's script
-		enemy.collider.GetComponentInParent<EnemyController>().enabled = true;
-		//disable enemy's moving script (AI script)
-		enemy.collider.GetComponentInParent<EnemyMovements>().enabled = false;
-		//make camera follow possessed enemy
-		Camera.main.GetComponent<UnityStandardAssets._2D.CameraFollow2D>().target = enemy.transform;
-	}
-
 	//if the player collide with a moving platform, then
 	//make the player a child of that platform so that
 	//it could move with the platform
@@ -141,7 +120,7 @@ public class CharacterController2D : MonoBehaviour {
 		}
 		//if collide with harmful object, deal damage to player
 		//and move back a little bit.
-		if (other.gameObject.layer == 12) {
+		if (other.gameObject.tag == "Harmful") {
 			//if enemy is on the rhs of player
 			float onHitDir = 1f;
 			//if enemy is on the lhs
