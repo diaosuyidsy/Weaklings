@@ -116,8 +116,13 @@ public class CharacterController2D : MonoBehaviour {
 		//if collide with harmful object, deal damage to player
 		//and move back a little bit.
 		if (other.gameObject.tag == "Harmful") {
-			Debug.Log ("on hit enemy");
-			_rigidbody.AddForce(new Vector2(-1500, 0));
+			//if enemy is on the rhs of player
+			float onHitDir = 1f;
+			//if enemy is on the lhs
+			if (_transform.position.x > other.gameObject.transform.position.x) {
+				onHitDir = -1f;
+			}
+			_rigidbody.AddForce(new Vector2(-1500 * onHitDir, 0));
 		}
 	}
 
