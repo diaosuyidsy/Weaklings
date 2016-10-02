@@ -19,6 +19,9 @@ public class EnemyMovements : MonoBehaviour {
 	private Vector2 rightLineFOV;
 
 	public GameObject exMark;
+	public GameObject Bar;
+
+	private bool flag = false;
 
 	void Awake(){
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -29,7 +32,7 @@ public class EnemyMovements : MonoBehaviour {
 			rightLineFOV = RotatePointAroundTransform(direction.normalized*radius, -fov/2);
 			leftLineFOV = RotatePointAroundTransform(direction.normalized*radius, fov/2);
 		}
-		exMark.SetActive (InsideFOV(player.transform.position));
+
 	}
 
 	public bool InsideFOV(Vector3 playerPos) {
