@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0736856, y: -2.2326427, z: 0}
+  m_LocalPosition: {x: 2.45, y: -2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -409,6 +409,7 @@ MonoBehaviour:
   direction: {x: -90, y: 1}
   testPoint: {fileID: 448586}
   exMark: {fileID: 1000013801208034}
+  Bar: {fileID: 1000010740536536}
 --- !u!222 &222000012493652122
 CanvasRenderer:
   m_ObjectHideFlags: 1
