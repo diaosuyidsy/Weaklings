@@ -9,9 +9,6 @@ public class EnemyController : MonoBehaviour {
 
 	public float jumpForce = 600.0f;
 
-	// player health
-	public int playerHealth = 100;
-
 	public LayerMask whatIsGround;
 
 	public Transform groundCheck;
@@ -46,8 +43,6 @@ public class EnemyController : MonoBehaviour {
 		//set game object tag and layer to player.
 		this.gameObject.layer = 10;
 		_playerLayer = this.gameObject.layer;
-
-		this.gameObject.tag = "Player";
 	}
 
 	// Update is called once per frame
@@ -56,7 +51,32 @@ public class EnemyController : MonoBehaviour {
 		if (!playerCanMove || (Time.timeScale == 0f)) {
 			return;
 		}
+		SendMessageUpwards ("dealDamage", 1);
 
+		checkMovement ();
+	}
+
+	void LateUpdate()
+	{
+		//get the current scale, so that could be flipped later
+		Vector3 localScale = _transform.localScale;
+
+		if (_vx > 0) {
+			facingRight = true;
+		} else if( _vx < 0) {
+			facingRight = false;
+		}
+
+		if ((facingRight && localScale.x < 0) || (!facingRight && localScale.x > 0)) {
+			localScale.x *= -1;
+		}
+
+		_transform.localScale = localScale;
+
+	}
+
+	void checkMovement()
+	{
 		_vx = Input.GetAxisRaw ("Horizontal");
 
 		if (_vx != 0) {
@@ -88,26 +108,6 @@ public class EnemyController : MonoBehaviour {
 		}
 
 		_rigidbody.velocity = new Vector2(_vx * moveSpeed, _vy);
-
-	}
-
-	void LateUpdate()
-	{
-		//get the current scale, so that could be flipped later
-		Vector3 localScale = _transform.localScale;
-
-		if (_vx > 0) {
-			facingRight = true;
-		} else if( _vx < 0) {
-			facingRight = false;
-		}
-
-		if ((facingRight && localScale.x < 0) || (!facingRight && localScale.x > 0)) {
-			localScale.x *= -1;
-		}
-
-		_transform.localScale = localScale;
-
 	}
 
 	//if the player collide with a moving platform, then
@@ -120,7 +120,7 @@ public class EnemyController : MonoBehaviour {
 		}
 		//if collide with harmful object, deal damage to player
 		//and move back a little bit.
-		if (other.gameObject.tag == "Harmful") {
+		if (other.gameObject.layer == 12) {
 			//if enemy is on the rhs of player
 			float onHitDir = 1f;
 			//if enemy is on the lhs
@@ -151,36 +151,6 @@ public class EnemyController : MonoBehaviour {
 		_rigidbody.isKinematic = false;
 	}
 
-	public void dealDamage(int damage)
-	{
-		if (playerCanMove) {
-			playerHealth -= damage;
-		}
-		if (playerHealth <= 0) {
-			StartCoroutine (killPlayer ());
-		}
-	}
 
-	IEnumerator killPlayer()
-	{
-		if (playerCanMove) {
-			FreezeMotion ();
 
-			yield return new WaitForSeconds (2f);
-
-			if (GameManager.gm) {
-				GameManager.gm.resetGame ();
-			} else {
-				SceneManager.LoadScene (SceneManager.GetActiveScene().name);
-			}
-		}
-	}
-
-	public void respawn(Vector3 loc)
-	{
-		UnFreezeMotion ();
-		playerHealth = 1;
-		_transform.parent = null;
-		_transform.position = loc;
-	}
 }

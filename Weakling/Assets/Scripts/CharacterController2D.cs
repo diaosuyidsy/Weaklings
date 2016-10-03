@@ -11,6 +11,8 @@ public class CharacterController2D : MonoBehaviour {
 
 	// player health
 	public int playerHealth = 1;
+
+	public bool canDoubleJump = true;
 	 
 	public LayerMask whatIsGround;
 	public LayerMask whatCanBePossessed;
@@ -20,6 +22,8 @@ public class CharacterController2D : MonoBehaviour {
 
 	[HideInInspector]
 	bool playerCanMove = true;
+
+	bool doubleJumpCount = true;
 
 	//store references to components on the gameObject
 	Transform _transform;
@@ -53,45 +57,10 @@ public class CharacterController2D : MonoBehaviour {
 		if (!playerCanMove || (Time.timeScale == 0f)) {
 			return;
 		}
-
-		//Check if player can possess a enemy
-		if(Input.GetButtonDown("Fire1") && (bool)Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed)
-			&& Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed).transform.localScale.x * _transform.localScale.x < 0){
-			Debug.Log ("biu biu biu biu biu biu");
-			onPossesionStart (Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed));
-		}
-
-		_vx = Input.GetAxisRaw ("Horizontal");
-
-		if (_vx != 0) {
-			isRunning = true;
-		} else {
-			isRunning = false;
-		}
-
-		_vy = _rigidbody.velocity.y;
-
-		//check if player is standing on ground
-		isGrounded = Physics2D.Linecast (_transform.position, groundCheck.position, whatIsGround) ||
-			Physics2D.Linecast (_transform.position + new Vector3(0.25f, 0, 0), groundCheck.position + new Vector3(0.25f, 0, 0), whatIsGround) ||
-			Physics2D.Linecast (_transform.position - new Vector3(0.25f, 0, 0), groundCheck.position - new Vector3(0.25f, 0, 0), whatIsGround);
-		
-		if(isGrounded && Input.GetButtonDown("Jump"))
-		{
-			_vy = 0f;
-			//add a force in the up direction
-			_rigidbody.AddForce(new Vector2(0, jumpForce));
-			//play the jumping sound, need to be done
-		}
-
-//		 If the player stops jumping mid jump and player is not yet falling
-//		 then set the vertical velocity to 0 (he will start to fall from gravity)
-		if(Input.GetButtonUp("Jump") && _vy>0f)
-		{
-			_vy = 0f;
-		}
-
-		_rigidbody.velocity = new Vector2(_vx * moveSpeed, _vy);
+		//check if next move is to possess an enemy
+		checkPossession ();
+		//check if next move is basic movement
+		checkMovement ();
 
 	}
 
@@ -114,15 +83,76 @@ public class CharacterController2D : MonoBehaviour {
 
 	}
 
+	void checkPossession()
+	{
+		//Check if player can possess a enemy
+		if(Input.GetButtonDown("Fire1") && (bool)Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed)
+			&& Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed).transform.localScale.x * _transform.localScale.x < 0){
+			onPossesionStart (Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed));
+		}
+	}
+
+	void checkMovement()
+	{
+		_vx = Input.GetAxisRaw ("Horizontal");
+
+		if (_vx != 0) {
+			isRunning = true;
+		} else {
+			isRunning = false;
+		}
+
+		_vy = _rigidbody.velocity.y;
+
+		//check if player is standing on ground
+		isGrounded = Physics2D.Linecast (_transform.position, groundCheck.position, whatIsGround) ||
+			Physics2D.Linecast (_transform.position + new Vector3(0.25f, 0, 0), groundCheck.position + new Vector3(0.25f, 0, 0), whatIsGround) ||
+			Physics2D.Linecast (_transform.position - new Vector3(0.25f, 0, 0), groundCheck.position - new Vector3(0.25f, 0, 0), whatIsGround);
+
+		if(Input.GetButtonDown("Jump"))
+		{
+			if (isGrounded) {
+				_vy = 0f;
+				//add a force in the up direction
+				_rigidbody.AddForce (new Vector2 (0, jumpForce));
+				//play the jumping sound, need to be done
+				doubleJumpCount = true;
+			} else {
+				if (canDoubleJump && doubleJumpCount) {
+					_vy = 0f;
+					_rigidbody.AddForce (new Vector2 (0, jumpForce));
+					doubleJumpCount = false;
+				}
+			}
+		}
+
+		//		 If the player stops jumping mid jump and player is not yet falling
+		//		 then set the vertical velocity to 0 (he will start to fall from gravity)
+		if(Input.GetButtonUp("Jump") && _vy>0f)
+		{
+			_vy = 0f;
+		}
+
+		_rigidbody.velocity = new Vector2(_vx * moveSpeed, _vy);
+	}
+
 	//when player possess the enemy 
 	void onPossesionStart(RaycastHit2D enemy)
 	{
 		this.transform.parent = enemy.transform;
+
 		//disable everything in player
 		this.GetComponent<SpriteRenderer>().enabled = false;
 		this.GetComponent<CharacterController2D> ().enabled = false;
-		_rigidbody.Sleep ();
+		//disabel rigidbody
+		_rigidbody.isKinematic = true;
 		this.GetComponent<CircleCollider2D> ().enabled = false;
+
+		//set GameManager's player to enemy
+		GameObject.Find("GameManager").GetComponent<GameManager>()._player = enemy.transform.gameObject;
+
+		//set enemy's tag to Player
+		enemy.collider.gameObject.tag = "PossessedPlayer";
 		//enable enemy's script
 		enemy.collider.GetComponentInParent<EnemyController>().enabled = true;
 		//disable enemy's moving script (AI script)

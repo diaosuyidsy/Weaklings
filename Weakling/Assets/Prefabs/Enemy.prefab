@@ -41,9 +41,10 @@ GameObject:
   - 212: {fileID: 21270522}
   - 50: {fileID: 5093798}
   - 61: {fileID: 6198924}
-  - 114: {fileID: 11474754}
   - 114: {fileID: 114000014117298382}
   - 114: {fileID: 114000014109871586}
+  - 114: {fileID: 114000011109485994}
+  - 114: {fileID: 114000011755097154}
   m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
@@ -124,24 +125,6 @@ BoxCollider2D:
   m_Offset: {x: -0.004107952, y: 0.012323737}
   serializedVersion: 2
   m_Size: {x: 0.5219765, y: 0.9965279}
---- !u!114 &11474754
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151584}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204dda20fe73f4b25afa3ec12f1d2e55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpForce: 300
-  playerHealth: 1
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 768
-  groundCheck: {fileID: 405094}
 --- !u!212 &21270522
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -286,6 +269,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000011109485994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151584}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204dda20fe73f4b25afa3ec12f1d2e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  jumpForce: 300
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 768
+  groundCheck: {fileID: 405094}
 --- !u!114 &114000011448445254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,6 +334,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000011755097154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119b28157a59f4b5685a650feabfe183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
 --- !u!114 &114000012972017064
 MonoBehaviour:
   m_ObjectHideFlags: 1

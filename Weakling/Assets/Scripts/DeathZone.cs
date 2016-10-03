@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DeathZone : MonoBehaviour {
 
-	public int DamageDealt = 100;
+	public int DamageDealt = 1000;
 
 	public bool destroyNonePlayerObject = true;
 
@@ -11,7 +11,9 @@ public class DeathZone : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player") {
 			other.gameObject.GetComponent<CharacterController2D>().dealDamage (DamageDealt);
-		} else if (destroyNonePlayerObject) {
+		}else if (other.gameObject.tag == "PossessedPlayer"){
+			other.SendMessageUpwards ("dealDamage", DamageDealt);
+		}else if (destroyNonePlayerObject) {
 			DestroyObject (other.gameObject);
 		}
 	}
