@@ -29,7 +29,8 @@ public class PlayerAttack : MonoBehaviour {
 
 	private void checkAttack()
 	{
-		if (Physics2D.Linecast (transform.position, attackCheck.position, whatCanBeAttacked)) {
+		if (Physics2D.Linecast (transform.position, attackCheck.position, whatCanBeAttacked)
+			&& Physics2D.Linecast(transform.position, attackCheck.position, whatCanBeAttacked).transform.localScale.x * transform.localScale.x > 0) {
 			RaycastHit2D _enemy = Physics2D.Linecast (transform.position, attackCheck.position, whatCanBeAttacked);
 			_enemy.collider.SendMessageUpwards ("dealDamage", damage);
 		}

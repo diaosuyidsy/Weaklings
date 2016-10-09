@@ -2,9 +2,19 @@
 using System.Collections;
 
 public class EnemyHP : MonoBehaviour {
-	public int HP = 100;
+	public float HP = 100f;
+	public float possessionRate = 0.1f;//under possessionRate * MaxHP can a enemy be possessed
 
-	public void dealDamage(int dmg)
+	public bool canNowBePossessed = false;
+
+	private float MaxHP;
+
+	void Awake()
+	{
+		MaxHP = HP;
+	}
+
+	public void dealDamage(float dmg)
 	{
 		HP -= dmg;
 		if (HP <= 0) {
@@ -13,6 +23,9 @@ public class EnemyHP : MonoBehaviour {
 			} else if (this.CompareTag ("PossessedPlayer")) {
 				possessEnd ();
 			}
+		}
+		if (HP <= possessionRate * MaxHP) {
+			canNowBePossessed = true;
 		}
 	}
 
