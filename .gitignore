@@ -1,13 +1,12 @@
 # =============== #
 # Unity generated #
 # =============== #
-[Tt]emp/
-[Oo]bj/
-[Bb]uild
-/[Ll]ibrary/
-sysinfo.txt
-*.stackdump
- 
+Temp/
+Obj/
+UnityGenerated/
+Library/
+Assets/AssetStoreTools*
+
 # ============================================= #
 # Visual Studio / MonoDevelop / Rider generated #
 # ============================================= #
