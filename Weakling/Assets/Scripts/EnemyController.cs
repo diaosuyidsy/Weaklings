@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour {
 		//set game object tag and layer to player.
 		this.gameObject.layer = 10;
 		_playerLayer = this.gameObject.layer;
+		GetComponent<EnemyHP> ().StopAllCoroutines();
 	}
 
 	// Update is called once per frame
@@ -51,7 +52,7 @@ public class EnemyController : MonoBehaviour {
 		if (!playerCanMove || (Time.timeScale == 0f)) {
 			return;
 		}
-		SendMessageUpwards ("dealDamage", 1);
+		SendMessageUpwards ("dealDamage", 0.1f);
 
 		checkMovement ();
 	}

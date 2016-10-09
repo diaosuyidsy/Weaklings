@@ -14,9 +14,13 @@ public class EnemyHP : MonoBehaviour {
 		MaxHP = HP;
 	}
 
+	//note: heals when deal Negative damage
 	public void dealDamage(float dmg)
 	{
 		HP -= dmg;
+		if (GetComponent<EnemyController> ().enabled == false) {
+			StartCoroutine (flashWhenDealtDamage ());
+		}
 		if (HP <= 0) {
 			if (this.CompareTag ("Enemy")) {
 				Destroy (gameObject);
@@ -26,6 +30,13 @@ public class EnemyHP : MonoBehaviour {
 		}
 		if (HP <= possessionRate * MaxHP) {
 			canNowBePossessed = true;
+			if (GetComponent<EnemyController> ().enabled == false) {
+				StartCoroutine (flashWhenCanBePossessed ());
+			}
+		}
+		if (HP >= possessionRate * MaxHP) {
+			canNowBePossessed = false;
+			StopCoroutine (flashWhenCanBePossessed ());
 		}
 	}
 
@@ -49,5 +60,22 @@ public class EnemyHP : MonoBehaviour {
 		Destroy (GetComponent<EnemyMovements> ());
 
 		Camera.main.GetComponent<UnityStandardAssets._2D.CameraFollow2D>().target = player.transform;
+	}
+
+	IEnumerator flashWhenCanBePossessed()
+	{
+		while (canNowBePossessed) {
+			GetComponent<SpriteRenderer> ().color = Color.white;
+			yield return new WaitForSeconds (0.3f);
+			GetComponent<SpriteRenderer> ().color = Color.red;
+			yield return new WaitForSeconds (0.3f);
+		}
+	}
+
+	IEnumerator flashWhenDealtDamage()
+	{
+		GetComponent<SpriteRenderer> ().color = Color.red;
+		yield return new WaitForSeconds (0.3f);
+		GetComponent<SpriteRenderer> ().color = Color.white;
 	}
 }

@@ -346,6 +346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  possessionRate: 0.3
+  canNowBePossessed: 0
 --- !u!114 &114000012972017064
 MonoBehaviour:
   m_ObjectHideFlags: 1
