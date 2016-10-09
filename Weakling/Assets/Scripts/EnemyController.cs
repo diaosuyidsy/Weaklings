@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour {
 		//set game object tag and layer to player.
 		this.gameObject.layer = 10;
 		_playerLayer = this.gameObject.layer;
-		GetComponent<EnemyHP> ().StopAllCoroutines();
+		GetComponent<EnemyStatus> ().StopAllCoroutines();
 	}
 
 	// Update is called once per frame

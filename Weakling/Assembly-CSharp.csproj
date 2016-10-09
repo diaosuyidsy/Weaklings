@@ -51,8 +51,8 @@
      <Compile Include="Assets\Scripts\DeathZone.cs" />
      <Compile Include="Assets\Scripts\EnemyAlarm.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\EnemyHP.cs" />
      <Compile Include="Assets\Scripts\EnemyMovements.cs" />
+     <Compile Include="Assets\Scripts\EnemyStatus.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
  <Reference Include="UnityEngine.UI">

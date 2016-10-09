@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHP : MonoBehaviour {
+public class EnemyStatus : MonoBehaviour {
 	public float HP = 100f;
 	public float possessionRate = 0.1f;//under possessionRate * MaxHP can a enemy be possessed
 

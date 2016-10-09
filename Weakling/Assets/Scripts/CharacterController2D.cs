@@ -88,7 +88,7 @@ public class CharacterController2D : MonoBehaviour {
 		//Check if player can possess a enemy
 		if(Input.GetButtonDown("Fire1") && (bool)Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed)//if player hit left mouse and an enemy is withinrange possess
 			&& Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed).transform.localScale.x * _transform.localScale.x < 0 //if player is on enemy's back
-			&& Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed).transform.GetComponent<EnemyHP>().canNowBePossessed){ //if enemy is under 10% HP
+			&& Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed).transform.GetComponent<EnemyStatus>().canNowBePossessed){ //if enemy is under 10% HP
 			onPossesionStart (Physics2D.Linecast(_transform.position, possessionCheck.position, whatCanBePossessed)); //then start possesion
 		}
 	}
