@@ -44,8 +44,9 @@ GameObject:
   - 114: {fileID: 114000014117298382}
   - 114: {fileID: 114000014109871586}
   - 114: {fileID: 114000011109485994}
-  - 114: {fileID: 114000011755097154}
   - 114: {fileID: 114000014062590600}
+  - 114: {fileID: 114000013130565196}
+  - 114: {fileID: 114000013331364262}
   m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
@@ -335,21 +336,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114000011755097154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119b28157a59f4b5685a650feabfe183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 100
-  possessionRate: 0.3
-  canNowBePossessed: 0
-  MaxHP: 0
 --- !u!114 &114000012972017064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,6 +379,38 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000013130565196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce6a39d2e27045eaa66540c9aa84010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000013331364262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 0}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
 --- !u!114 &114000014062590600
 MonoBehaviour:
   m_ObjectHideFlags: 1
