@@ -156,6 +156,7 @@ public class CharacterController2D : MonoBehaviour {
 		enemy.collider.gameObject.tag = "PossessedPlayer";
 		//enable enemy's script
 		enemy.collider.GetComponentInParent<EnemyController>().enabled = true;
+		enemy.collider.GetComponentInParent<M4Attack>().enabled = true;
 		//disable enemy's moving script (AI script)
 		enemy.collider.GetComponentInParent<EnemyMovements>().enabled = false;
 		//make camera follow possessed enemy
