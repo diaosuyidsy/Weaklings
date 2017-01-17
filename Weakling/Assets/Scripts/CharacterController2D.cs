@@ -237,4 +237,12 @@ public class CharacterController2D : MonoBehaviour {
 		_transform.parent = null;
 		_transform.position = loc;
 	}
+
+	public int getFacing(){
+		if (facingRight) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
 }

@@ -15,7 +15,6 @@ public class DragHandlers : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
-		Debug.Log ("begin drag");
 		ItemBeingDragged = gameObject;
 		startPosition = transform.position;
 		startParent = transform.parent;
@@ -29,7 +28,6 @@ public class DragHandlers : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	public void OnDrag (PointerEventData eventData)
 	{
 		transform.position = Input.mousePosition;
-		Debug.Log ("OnDrag");
 	}
 
 	#endregion
