@@ -16,12 +16,15 @@ public class GameManager : MonoBehaviour {
 	public GameObject _player;
 	public GameObject _enemy;
 	Vector3 _spawnLocation;
+	public Camera mainCamera;
 
 	//UI elements
 	public GameObject UIGamePaused;
+	public GameObject UISkillPanel;
 
 	void Awake()
 	{
+		DontDestroyOnLoad (this);
 		if (gm == null) {
 			gm = this.GetComponent<GameManager> ();
 		}
@@ -32,6 +35,26 @@ public class GameManager : MonoBehaviour {
 	//main game loop
 	void Update()
 	{
+		check_pause_UI ();
+		check_skill_UI ();
+	}
+
+	private void check_skill_UI()
+	{
+		if(Input.GetKeyDown("b")){
+			if(Time.timeScale > 0f){
+				UISkillPanel.SetActive (true);
+				Time.timeScale = 0f;
+			}else{
+				Time.timeScale = 1f;
+				UIGamePaused.SetActive(false);
+				UISkillPanel.SetActive (false);
+			}
+		}
+	}
+
+	private void check_pause_UI()
+	{
 		//if Esc is pressed, then pause/unpause the game
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			if(Time.timeScale > 0f){
@@ -40,6 +63,7 @@ public class GameManager : MonoBehaviour {
 			}else{
 				Time.timeScale = 1f;
 				UIGamePaused.SetActive(false);
+				UISkillPanel.SetActive (false);
 			}
 
 		}

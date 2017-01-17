@@ -40,6 +40,7 @@ public class CharacterController2D : MonoBehaviour {
 	int _playerLayer;
 
 	void Awake(){
+		DontDestroyOnLoad (this);
 		_transform = GetComponent<Transform> ();
 		_rigidbody = GetComponent<Rigidbody2D> ();
 

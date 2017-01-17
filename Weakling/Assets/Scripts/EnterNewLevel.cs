@@ -4,20 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class EnterNewLevel : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public Transform nextSpawn;
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Player"){
-			Debug.Log ("Load scene");
-			SceneManager.LoadScene (GameManager.gm.levelAfterVictory);
+			Debug.Log ("Teleporting");
+			GameManager.gm._player.transform.position = nextSpawn.position;
+			//set camera look at player immediately
+			GameManager.gm.mainCamera.transform.position = GameManager.gm._player.transform.position;
 		}
 	}
 }
