@@ -1,1 +1,5 @@
-Created README
+- WASD to move around
+- B to equip abilities
+- Mouse 1 to attack
+- Stand in enemy back & Mouse 1 to occupy
+- Esc to pause
