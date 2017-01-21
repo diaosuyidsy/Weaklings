@@ -7,7 +7,7 @@ public class Skill_Run : MonoBehaviour {
 
 	private Rigidbody2D _rigidBody;
 
-	public float moveSpeed = 6f;
+	public float moveSpeed = 10f;
 
 	public int clicks = 0;
 
@@ -42,7 +42,7 @@ public class Skill_Run : MonoBehaviour {
 
 		//if player relase the run
 		if(Input.GetButtonUp("Horizontal")){
-			_player.GetComponent<CharacterController2D>().moveSpeed = 3f;
+			_player.GetComponent<CharacterController2D>().moveSpeed = 6f;
 		}
 
 

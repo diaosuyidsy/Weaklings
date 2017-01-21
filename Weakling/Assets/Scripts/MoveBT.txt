@@ -1,4 +1,0 @@
-tree("Root")
-	sequence
-		MoveTo(-0.05, 0.0)
-		MoveTo(0.05, 0.0)

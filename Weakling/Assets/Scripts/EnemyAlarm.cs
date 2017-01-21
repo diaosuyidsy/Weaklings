@@ -15,6 +15,8 @@ public class EnemyAlarm : MonoBehaviour {
 	public GameObject alarmBar;
 	public GameObject Bar;
 
+	public bool playerInSight = false;
+
 	// Use this for initialization
 	void Awake(){
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -28,11 +30,18 @@ public class EnemyAlarm : MonoBehaviour {
 		} 
 		else if(distance<=0.6&&distance>0&&cur_alarm<100){
 			cur_alarm = 100;
+			playerInSight = true;
 		}
 		else if (cur_alarm > 50) {
 			highAlarm ();
 		} else if (cur_alarm <= 50 && cur_alarm > 0) {
 			decreaseAlarm ();
+		}
+
+		if (cur_alarm <= 0.01) {
+			playerInSight = false;
+		} else if (100f - cur_alarm <= 0.01f) {
+			playerInSight = true;
 		}
 	}
 
