@@ -7,9 +7,6 @@ Programs in Weakling folder.
 
 Good Luck.
 
-################# UPDATE 10.9 #######################
-1. Enemy can now only be possessed when HP is lower than 10% of MaxHP
-2. On hit flash red function is implemented.
 
 
 
