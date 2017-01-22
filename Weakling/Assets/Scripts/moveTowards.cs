@@ -14,6 +14,7 @@ public class moveTowards : Action
 
 	private Seeker seeker;
 	private Rigidbody2D rb;
+	private SpriteRenderer sr;
 
 	public Path path;
 
@@ -29,9 +30,12 @@ public class moveTowards : Action
 	//the waypoint we are currently moving towards
 	private int currentWayPoint = 0;
 
+	public BehaviorTree bt;
+
 	public override void OnStart(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
+		sr = GetComponent<SpriteRenderer> ();
 
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
 
@@ -68,12 +72,22 @@ public class moveTowards : Action
 		Vector3 dir = (path.vectorPath[currentWayPoint] - transform.position).normalized;
 		dir *= speed * Time.fixedDeltaTime;
 
+		if (dir.x >= 0) {
+			sr.flipX = true;
+		} else {
+			sr.flipX = false;
+		}
+
 		//Move the AI
 		rb.AddForce (dir, fMode);
 
 		if (Vector3.Distance (transform.position, path.vectorPath [currentWayPoint]) < nextWayPointDistance) {
 			currentWayPoint++;
 			return TaskStatus.Running;
+		}
+
+		if (!(bool)bt.GetVariable ("PIS").GetValue ()) {
+			return TaskStatus.Success;
 		}
 
 		return TaskStatus.Running;

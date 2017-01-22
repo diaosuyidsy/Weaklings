@@ -8,10 +8,31 @@ public class EnemyStatus : MonoBehaviour {
 	public bool canNowBePossessed = false;
 
 	private float MaxHP;
+	private Rigidbody2D rb;
+	private Vector3 dir;
+
+	public float impluseSpeed = 6f;
 
 	void Awake()
 	{
 		MaxHP = HP;
+	}
+
+	void Start(){
+		rb = GetComponent<Rigidbody2D> ();
+		dir = new Vector3 (0, 1);
+		dir *= impluseSpeed * Time.deltaTime; 
+		StartCoroutine (jetpack ());
+	}
+
+	//apply a force to keep enemy up in air
+	IEnumerator jetpack(){
+
+		rb.AddForce (dir, ForceMode2D.Impulse);
+		
+		yield return new WaitForSeconds (1f);
+
+		StartCoroutine (jetpack ());
 	}
 
 	//note: heals when deal Negative damage

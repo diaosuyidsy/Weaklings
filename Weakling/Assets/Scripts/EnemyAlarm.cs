@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using BehaviorDesigner.Runtime;
 
 public class EnemyAlarm : MonoBehaviour {
 
@@ -17,6 +18,8 @@ public class EnemyAlarm : MonoBehaviour {
 
 	public bool playerInSight = false;
 
+	public BehaviorTree behaviroTree;
+
 	// Use this for initialization
 	void Awake(){
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -25,12 +28,13 @@ public class EnemyAlarm : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		distance = Vector3.Distance (player.transform.position, testPoint.transform.position);
-		if (distance < 2.6 &&distance>0.6&& cur_alarm < 100) {
+		if (distance < 6.6 &&distance>0.6&& cur_alarm < 100) {
 			increaseAlarm ();
 		} 
 		else if(distance<=0.6&&distance>0&&cur_alarm<100){
 			cur_alarm = 100;
 			playerInSight = true;
+			behaviroTree.SetVariableValue ("PIS", true);
 		}
 		else if (cur_alarm > 50) {
 			highAlarm ();
@@ -40,13 +44,15 @@ public class EnemyAlarm : MonoBehaviour {
 
 		if (cur_alarm <= 0.01) {
 			playerInSight = false;
+			behaviroTree.SetVariableValue ("PIS", false);
 		} else if (100f - cur_alarm <= 0.01f) {
 			playerInSight = true;
+			behaviroTree.SetVariableValue ("PIS", true);
 		}
 	}
 
 	void increaseAlarm(){
-		cur_alarm += 1f/(Vector3.Distance(player.transform.position,testPoint.transform.position));
+		cur_alarm += 5f/(Vector3.Distance(player.transform.position,testPoint.transform.position));
 		calc_alarm = cur_alarm/ max_alarm;
 		setAlarmBar (calc_alarm);
 	}
