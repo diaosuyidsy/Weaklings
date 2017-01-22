@@ -49,6 +49,7 @@ GameObject:
   - 114: {fileID: 114000013570840476}
   - 114: {fileID: 114000010456905350}
   - 114: {fileID: 114000011853129212}
+  - 95: {fileID: 95000013512822098}
   m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
@@ -110,7 +111,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 2
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.05
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -127,9 +128,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.004107952, y: 0.012323737}
+  m_Offset: {x: -0.010601997, y: 0.08375573}
   serializedVersion: 2
-  m_Size: {x: 0.5219765, y: 0.9965279}
+  m_Size: {x: 0.5349639, y: 0.8536639}
 --- !u!212 &21270522
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -275,6 +276,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 440952}
   m_RootOrder: 3
+--- !u!95 &95000013512822098
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f59eeb21a757410abf5f0bc7aa70e70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000010058227576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,37 +415,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWhenEnabled: 1
-  pauseWhenDisabled: 0
+  pauseWhenDisabled: 1
   restartWhenComplete: 0
   logTaskChanges: 0
   group: 0
   resetValuesOnRestart: 0
   externalBehavior: {fileID: 0}
   mBehaviorSource:
-    behaviorName: Behavior
+    behaviorName: Normal
     behaviorDescription: 
     mTaskData:
-      types:
-      - BehaviorDesigner.Runtime.Tasks.EntryTask
-      - BehaviorDesigner.Runtime.Tasks.Repeater
-      - BehaviorDesigner.Runtime.Tasks.Sequence
-      - WithInSight
-      - moveTowards
-      parentIndex: ffffffff00000000010000000200000002000000
-      startIndex: 040000000e000000240000002f0000003a000000
-      variableStartIndex: 00000000
-      JSONSerialization: 
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(119.559387,-98.98312)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Repeater\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(0.5448265,77.041)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Repeater\",\n\t\t\"Instant\":true,\n\t\t\"SharedIntcount\":{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedInt\",\n\t\t\t\"Name\":\"\",\n\t\t\t\"Int32mValue\":1\n\t\t},\n\t\t\"SharedBoolrepeatForever\":{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\"Name\":\"\",\n\t\t\t\"BooleanmValue\":true\n\t\t},\n\t\t\"SharedBoolendOnFailure\":{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\"Name\":\"\",\n\t\t\t\"BooleanmValue\":false\n\t\t},\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-2.48343372,106.187057)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Selector\",\n\t\t\t\"Instant\":true,\n\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-181.7001,200.321442)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":3,\n\t\t\t\t\"Name\":\"Patrol\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"Disabled\":true,\n\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Inverter\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(-101.7001,110.321442)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":4,\n\t\t\t\t\t\"Name\":\"Inverter\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\"Type\":\"WithInSight\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(4.479313,105.321411)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":5,\n\t\t\t\t\t\t\"Name\":\"With
+        In Sight\",\n\t\t\t\t\t\t\"Instant\":true\n\t\t\t\t\t}]\n\t\t\t\t}]\n\t\t\t},{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(145.101959,205)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":6,\n\t\t\t\t\"Name\":\"Seek\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"WithInSight\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(-70,160)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":7,\n\t\t\t\t\t\"Name\":\"With
+        In Sight\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"BehaviorTreebehaviorTree\":0\n\t\t\t\t},{\n\t\t\t\t\t\"Type\":\"moveTowards\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(80,155)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":8,\n\t\t\t\t\t\"Name\":\"Move
+        Towards\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"Transformtarget\":1,\n\t\t\t\t\t\"SingleUpdateRate\":2,\n\t\t\t\t\t\"Singlespeed\":600,\n\t\t\t\t\t\"ForceMode2DfMode\":\"Force\",\n\t\t\t\t\t\"BooleanpathIsEnd\":false,\n\t\t\t\t\t\"SinglenextWayPointDistance\":3,\n\t\t\t\t\t\"BehaviorTreebt\":2\n\t\t\t\t}]\n\t\t\t}]\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\"Name\":\"PIS\",\n\t\t\"IsShared\":true,\n\t\t\"BooleanmValue\":false\n\t}]\n}"
       fieldSerializationData:
         typeName: []
-        fieldNameHash: 8b4f6294dc3a5f945706405d0ce1fd2589773804272a8eb93f91a530a4a2147bce73ae2e040c4a5ccfbb204cd39a6033a9e70b7b8aad462b89773804272a8eb93f91a530a4a2147bce73ae2e040c4a5ccfbb204cd39a6033a9e70b7b8aad462b394ed41ec49d36b3158933b3ab99f6e15b24b14be67313e0375f10e06705af711f0dcf02aa5c3197fb472e972beecc2889773804272a8eb93f91a530a4a2147bce73ae2e040c4a5ccfbb204cd39a6033a9e70b7b8aad462bf43c82cd89773804272a8eb93f91a530a4a2147bce73ae2e040c4a5ccfbb204cd39a6033a9e70b7b8aad462b4096edf189773804272a8eb93f91a530a4a2147bce73ae2e040c4a5ccfbb204cd39a6033a9e70b7b8aad462bddfcae81d1b9caf8af70269a09713643347a5b4f7190a7938281dc7d
-        startIndex: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000170000001800000018000000190000001a0000001b0000001b0000001c0000001d0000001e0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f0000004000000041000000420000004300000044000000450000004600000047000000
-        dataPosition: 00000000230000002600000027000000280000002c0000003100000032000000330000003b0000003b0000003c0000003d0000004100000045000000490000005100000052000000530000005b0000005b0000005c0000005d000000610000006500000087000000870000008b000000ae000000ae000000af000000d2000000d2000000d3000000d7000000df000000e0000000e1000000e9000000e9000000ea000000eb000000ef000000f3000000f7000000fb00000008010000090100000a01000012010000120100001301000014010000180100001c01000020010000240100003001000031010000320100003a0100003a0100003b0100003c0100004001000044010000480100004c01000050010000540100005501000059010000
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
         unityObjects:
         - {fileID: 114000011853129212}
         - {fileID: 0}
         - {fileID: 114000011853129212}
-        byteData: 4265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c504953010000000000456e7472790100681eef428f22d041000000000000000000000100000052657065617465720100b0790b3f66af0043000000000000000000004265686176696f7244657369676e65722e52756e74696d652e536861726564496e74010000004265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c014265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c000200000053657175656e6365010068c219c0b4ea08430000000000000000000000000000030000005769746820496e20536967687401007030dec21a5139430000000000000000000000000000040000004d6f766520546f77617264730100d856bb4289083e430000000000000000000001000000000000400000164400000000000000404002000000
-        byteDataArray: 4265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c504953010000000000456e7472790100681eef428f22d041000000000000000000000100000052657065617465720100b0790b3f66af0043000000000000000000004265686176696f7244657369676e65722e52756e74696d652e536861726564496e74010000004265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c014265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c000200000053657175656e6365010068c219c0b4ea08430000000000000000000000000000030000005769746820496e20536967687401007030dec21a5139430000000000000000000000000000040000004d6f766520546f77617264730100d856bb4289083e430000000000000000000001000000000000400000164400000000000000404002000000
+        byteData: 
+        byteDataArray: 
       Version: 1.5.8
 --- !u!114 &114000012972017064
 MonoBehaviour:
@@ -527,6 +543,7 @@ MonoBehaviour:
   HP: 100
   possessionRate: 0.9
   canNowBePossessed: 0
+  impluseSpeed: 75
 --- !u!114 &114000014109871586
 MonoBehaviour:
   m_ObjectHideFlags: 1

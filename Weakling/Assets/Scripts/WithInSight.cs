@@ -19,7 +19,7 @@ public class WithInSight : Conditional
 			return TaskStatus.Success;
 		}
 
-		return TaskStatus.Running;
+		return TaskStatus.Failure;
 	}
 		
 }
