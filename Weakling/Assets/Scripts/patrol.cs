@@ -36,6 +36,10 @@ public class patrol : Action
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
 	}
 
+	void OnEnable(){
+		seeker.StartPath (transform.position, target.position, OnPathComplete);
+	}
+
 	public override TaskStatus OnUpdate()
 	{
 //		if (currentWayPoint >= path.vectorPath.Count -1) {
@@ -45,10 +49,11 @@ public class patrol : Action
 //				return TaskStatus.Success;
 //			}
 //		}
-		if (Vector3.Distance (transform.position, target.position) < 3f) {
+		if (Vector3.Distance (transform.position, target.position) < 1f) {
 			Debug.Log ("End of Path Reached");
 			pathIsEnd = true;
 			if (pathIsEnd) {
+				currentWayPoint = 0;
 				return TaskStatus.Success;
 			}
 		}
@@ -72,6 +77,7 @@ public class patrol : Action
 			currentWayPoint++;
 			return TaskStatus.Running;
 		}
+
 
 		if ((bool)bt.GetVariable ("PIS").GetValue ()) {
 			return TaskStatus.Failure;

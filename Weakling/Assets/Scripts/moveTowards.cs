@@ -87,6 +87,7 @@ public class moveTowards : Action
 		}
 
 		if (!(bool)bt.GetVariable ("PIS").GetValue ()) {
+			currentWayPoint = 0;
 			return TaskStatus.Success;
 		}
 
