@@ -4,7 +4,7 @@ using BehaviorDesigner.Runtime.Tasks;
 using Pathfinding;
 using System.Collections;
 
-public class patrol : Action
+public class MoveTo : Action
 {
 	public Transform target;
 
@@ -35,6 +35,7 @@ public class patrol : Action
 
 	public override void OnStart()
 	{
+		//TODO: Update partol to up, down, left, right four directions.
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
 	}
 
@@ -51,7 +52,7 @@ public class patrol : Action
 //				return TaskStatus.Success;
 //			}
 //		}
-		if (Vector3.Distance (transform.position, target.position) < 1f) {
+		if (Vector3.Distance (transform.position, target.position) < 4f) {
 			Debug.Log ("End of Path Reached");
 			pathIsEnd = true;
 			if (pathIsEnd) {

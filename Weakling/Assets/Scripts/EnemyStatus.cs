@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using BehaviorDesigner.Runtime;
 
 public class EnemyStatus : MonoBehaviour {
 	public float HP = 100f;
@@ -10,6 +11,8 @@ public class EnemyStatus : MonoBehaviour {
 	private float MaxHP;
 	private Rigidbody2D rb;
 	private Vector3 dir;
+
+	private BehaviorTree[] trees;
 
 	public float impluseSpeed;
 
@@ -22,6 +25,7 @@ public class EnemyStatus : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		dir = new Vector3 (0, 1);
 		dir *= impluseSpeed * Time.deltaTime; 
+		trees = GetComponents<BehaviorTree> ();
 		StartCoroutine (jetpack ());
 	}
 
@@ -53,6 +57,16 @@ public class EnemyStatus : MonoBehaviour {
 			canNowBePossessed = true;
 			if (GetComponent<EnemyController> ().enabled == false) {
 				StartCoroutine (flashWhenCanBePossessed ());
+			}
+			//Bring it down
+			rb.gravityScale *= 2;
+			//Disable normal bt, enable flee bt
+			for (int i = 0; i < trees.Length; i++) {
+				if (trees [i].GetBehaviorSource ().behaviorName == "Normal") {
+					trees [i].enabled = false;
+				} else {
+					trees [i].enabled = true;
+				}
 			}
 		}
 		if (HP >= possessionRate * MaxHP) {

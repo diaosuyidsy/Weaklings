@@ -8,7 +8,7 @@ using System.Collections;
 [RequireComponent (typeof (Seeker))]
 public class FollowTarget : Action
 {
-	public Transform target;
+	private GameObject target;
 
 	public float UpdateRate = 2f;
 
@@ -43,6 +43,9 @@ public class FollowTarget : Action
 
 	public override void OnStart(){
 //		seeker.StartPath (transform.position, target.position, OnPathComplete);
+		target = (GameObject)bt.GetVariable ("Target").GetValue ();
+		Debug.Log ("get target: " + target);
+
 		if (counter == 0) {
 			StartCoroutine (UpdatePath ()); 
 			counter = 1;
@@ -51,7 +54,7 @@ public class FollowTarget : Action
 		
 
 	IEnumerator UpdatePath(){
-		seeker.StartPath (transform.position, target.position, OnPathComplete);
+		seeker.StartPath (transform.position, target.transform.position, OnPathComplete);
 
 		yield return new WaitForSeconds (1f / UpdateRate);
 
