@@ -11,7 +11,7 @@ public class EnemyStatus : MonoBehaviour {
 	private Rigidbody2D rb;
 	private Vector3 dir;
 
-	public float impluseSpeed = 6f;
+	public float impluseSpeed;
 
 	void Awake()
 	{
@@ -98,5 +98,20 @@ public class EnemyStatus : MonoBehaviour {
 		GetComponent<SpriteRenderer> ().color = Color.red;
 		yield return new WaitForSeconds (0.3f);
 		GetComponent<SpriteRenderer> ().color = Color.white;
+	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		//if collide with harmful object, deal damage to player
+		//and move back a little bit.
+		if (other.gameObject.layer == 9) {
+			//if enemy is on the rhs of player
+			float onHitDir = 1f;
+			//if enemy is on the lhs
+			if (transform.position.x > other.gameObject.transform.position.x) {
+				onHitDir = -1f;
+			}
+			GetComponent <Rigidbody2D>().AddForce(new Vector2(-150 * onHitDir, 0));
+		}
 	}
 }

@@ -35,6 +35,7 @@ public class EnemyAlarm : MonoBehaviour {
 			cur_alarm = 100;
 			playerInSight = true;
 			behaviroTree.SetVariableValue ("PIS", true);
+			behaviroTree.SetVariableValue ("Target", player);
 		}
 		else if (cur_alarm > 50) {
 			highAlarm ();
@@ -45,9 +46,11 @@ public class EnemyAlarm : MonoBehaviour {
 		if (cur_alarm <= 0.01) {
 			playerInSight = false;
 			behaviroTree.SetVariableValue ("PIS", false);
+			behaviroTree.SetVariableValue ("Target", null);
 		} else if (100f - cur_alarm <= 0.01f) {
 			playerInSight = true;
 			behaviroTree.SetVariableValue ("PIS", true);
+			behaviroTree.SetVariableValue ("Target", player);
 		}
 	}
 

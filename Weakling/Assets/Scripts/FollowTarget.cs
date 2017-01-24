@@ -6,7 +6,7 @@ using System.Collections;
 
 [RequireComponent (typeof (Rigidbody2D))]
 [RequireComponent (typeof (Seeker))]
-public class moveTowards : Action
+public class FollowTarget : Action
 {
 	public Transform target;
 
@@ -30,17 +30,25 @@ public class moveTowards : Action
 	//the waypoint we are currently moving towards
 	private int currentWayPoint = 0;
 
+	private int counter;
+
 	public BehaviorTree bt;
 
-	public override void OnStart(){
+	public override void OnAwake(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> ();
-
-		seeker.StartPath (transform.position, target.position, OnPathComplete);
-
-		StartCoroutine (UpdatePath()); 
+		counter = 0;
 	}
+
+	public override void OnStart(){
+//		seeker.StartPath (transform.position, target.position, OnPathComplete);
+		if (counter == 0) {
+			StartCoroutine (UpdatePath ()); 
+			counter = 1;
+		}
+	}
+		
 
 	IEnumerator UpdatePath(){
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
@@ -58,12 +66,12 @@ public class moveTowards : Action
 
 	public override TaskStatus OnUpdate (){
 		if (currentWayPoint >= path.vectorPath.Count -1) {
-//			if (pathIsEnd) {
-//				return TaskStatus.Success;
-//			}
 
 			Debug.Log ("End of Path Reached");
 			pathIsEnd = true;
+			if (pathIsEnd) {
+				return TaskStatus.Success;
+			}
 		}
 
 		pathIsEnd = false;
@@ -72,10 +80,10 @@ public class moveTowards : Action
 		Vector3 dir = (path.vectorPath[currentWayPoint] - transform.position).normalized;
 		dir *= speed * Time.fixedDeltaTime;
 
-		if (dir.x >= 0) {
-			sr.flipX = true;
-		} else {
-			sr.flipX = false;
+		if (dir.x * transform.localScale.x >= 0) {
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
 		}
 
 		//Move the AI
@@ -88,7 +96,7 @@ public class moveTowards : Action
 
 		if (!(bool)bt.GetVariable ("PIS").GetValue ()) {
 			currentWayPoint = 0;
-			return TaskStatus.Success;
+			return TaskStatus.Failure;
 		}
 
 		return TaskStatus.Running;

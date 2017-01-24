@@ -27,12 +27,14 @@ public class patrol : Action
 	//the waypoint we are currently moving towards
 	private int currentWayPoint = 0;
 
-	public override void OnStart()
-	{
+	public override void OnAwake(){
 		seeker = GetComponent<Seeker> ();
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> ();
+	}
 
+	public override void OnStart()
+	{
 		seeker.StartPath (transform.position, target.position, OnPathComplete);
 	}
 
@@ -64,10 +66,10 @@ public class patrol : Action
 		Vector3 dir = (path.vectorPath[currentWayPoint] - transform.position).normalized;
 		dir *= speed * Time.fixedDeltaTime;
 
-		if (dir.x >= 0) {
-			sr.flipX = true;
-		} else {
-			sr.flipX = false;
+		if (dir.x * transform.localScale.x >= 0) {
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
 		}
 
 		//Move the AI

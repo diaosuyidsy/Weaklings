@@ -40,7 +40,7 @@ public class CharacterController2D : MonoBehaviour {
 	int _playerLayer;
 
 	void Awake(){
-		DontDestroyOnLoad (this);
+//		DontDestroyOnLoad (this);
 		_transform = GetComponent<Transform> ();
 		_rigidbody = GetComponent<Rigidbody2D> ();
 
@@ -97,6 +97,11 @@ public class CharacterController2D : MonoBehaviour {
 	void checkMovement()
 	{
 		_vx = Input.GetAxisRaw ("Horizontal");
+		if (_vx == transform.localScale.x * -1) {
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
+		}
 
 		if (_vx != 0) {
 			isRunning = true;

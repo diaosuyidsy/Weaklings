@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 
 	void Awake()
 	{
-		DontDestroyOnLoad (this);
+//		DontDestroyOnLoad (this);
 		if (gm == null) {
 			gm = this.GetComponent<GameManager> ();
 		}
@@ -100,8 +100,8 @@ public class GameManager : MonoBehaviour {
 
 	public void resetGame()
 	{
+//		SceneManager.LoadScene ("Level1");
 		_player.GetComponent<CharacterController2D>().respawn (_spawnLocation);
-
 	}
 
 }
