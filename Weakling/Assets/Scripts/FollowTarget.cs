@@ -44,7 +44,6 @@ public class FollowTarget : Action
 	public override void OnStart(){
 //		seeker.StartPath (transform.position, target.position, OnPathComplete);
 		target = (GameObject)bt.GetVariable ("Target").GetValue ();
-		Debug.Log ("get target: " + target);
 
 		if (counter == 0) {
 			StartCoroutine (UpdatePath ()); 
@@ -69,8 +68,6 @@ public class FollowTarget : Action
 
 	public override TaskStatus OnUpdate (){
 		if (currentWayPoint >= path.vectorPath.Count -1) {
-
-			Debug.Log ("End of Path Reached");
 			pathIsEnd = true;
 			if (pathIsEnd) {
 				return TaskStatus.Success;

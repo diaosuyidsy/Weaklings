@@ -13,8 +13,11 @@ public class EnemyStatus : MonoBehaviour {
 	private Vector3 dir;
 
 	private BehaviorTree[] trees;
+	private int counter = 0;
 
 	public float impluseSpeed;
+	public float gravityScale = 1f;
+
 
 	void Awake()
 	{
@@ -43,9 +46,9 @@ public class EnemyStatus : MonoBehaviour {
 	public void dealDamage(float dmg)
 	{
 		HP -= dmg;
-		if (GetComponent<EnemyController> ().enabled == false) {
-			StartCoroutine (flashWhenDealtDamage ());
-		}
+//		if (GetComponent<EnemyController> ().enabled == false) {
+//			StartCoroutine (flashWhenDealtDamage ());
+//		}
 		if (HP <= 0) {
 			if (this.CompareTag ("Enemy")) {
 				Destroy (gameObject);
@@ -55,19 +58,26 @@ public class EnemyStatus : MonoBehaviour {
 		}
 		if (HP <= possessionRate * MaxHP) {
 			canNowBePossessed = true;
-			if (GetComponent<EnemyController> ().enabled == false) {
-				StartCoroutine (flashWhenCanBePossessed ());
-			}
+//			if (GetComponent<EnemyController> ().enabled == false) {
+//				StartCoroutine (flashWhenCanBePossessed ());
+//			}
 			//Bring it down
-			rb.gravityScale *= 2;
-			//Disable normal bt, enable flee bt
-			for (int i = 0; i < trees.Length; i++) {
-				if (trees [i].GetBehaviorSource ().behaviorName == "Normal") {
-					trees [i].enabled = false;
-				} else {
-					trees [i].enabled = true;
+			if(counter == 0){
+				rb.gravityScale = this.gravityScale;
+				counter = 1;
+				Debug.Log ("Gravity Scale went up to: " + rb.gravityScale);
+				for (int i = 0; i < trees.Length; i++) {
+					if (trees [i].GetBehaviorSource ().behaviorName == "Normal") {
+						trees [i].enabled = false;
+						Debug.Log ("disabled Normal tree");
+					} else {
+						trees [i].enabled = true;
+						Debug.Log ("enabled flee tree");
+					}
 				}
 			}
+			//Disable normal bt, enable flee bt
+
 		}
 		if (HP >= possessionRate * MaxHP) {
 			canNowBePossessed = false;
@@ -116,16 +126,16 @@ public class EnemyStatus : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		//if collide with harmful object, deal damage to player
-		//and move back a little bit.
 		if (other.gameObject.layer == 9) {
-			//if enemy is on the rhs of player
-			float onHitDir = 1f;
-			//if enemy is on the lhs
-			if (transform.position.x > other.gameObject.transform.position.x) {
-				onHitDir = -1f;
-			}
-			GetComponent <Rigidbody2D>().AddForce(new Vector2(-150 * onHitDir, 0));
+			Vector3 dir = other.contacts[other.contacts.Length / 2].point - new Vector2(transform.position.x, transform.position.y);
+			Debug.Log ("My position: " + transform.position + "hitpoint position: " + other.contacts[other.contacts.Length / 2].point);
+			// We then get the opposite (-Vector3) and normalize it
+			dir = dir.normalized * -1;
+
+
+			// And finally we add force in the direction of dir and multiply it by force. 
+			// This will push back the player
+			rb.AddForce(dir*150f);
 		}
 	}
 }
