@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   astarData:
-    dataString: UEsDBBQAAAgIAACQn+tazVnsBQIAAFgEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1U9lymzAU/RWG5zoDBBw7b4m3diZtPHE6fZali9FYSIyWesn43ysJEYiT8gI659yruxzeYqQawPoFaSri+yj9FsVUiRq0pPiB7xhYMLGg4bQUsl6QHcyE0srCS8QUWEoK7aK5hd6i+Ghf2Z0LOYXQs3tHF/uFgWuQve5rleGYoboBsqFn6MVp0sntlxdyQSBoXN1YMEZVKCTWp8YR8aapQEJseUKR7cvf7+QV0F2lXbXD2OeyVKBDTRKd5lTa8bRJ40ehK5epRmrfFvYXMeOuKdLMl9Qm/fmJH6WeLqWov3f3tg3piuL9CzphpPRgqEN4/rFwww+I7dGWwZ8K+C+xksJwYslXaVyoUZDN++N7a7MK8L7H21KvQNN83k5xMx0n+TjPJ4tRMgmrGiU30/bJo8vFz+Q4Y7TehsDu+HCkKszYQhsm/FamTgLS7u+H7cu7R4VAi7pifyt4RbuhzQKxpFJpS4VhIKPFE+X7laRkqO7wOVX6ida0HbgzjWt7K4x06njhd+GmZPRMSA5ymKQBjpg+re3F+tobV9z/o5YIa9HtLnDdn3UV4uFenyRX1Foc3l2wM5R89Fhc5Le3gBEqCpLfbYtyNCZZmk2zCQGYpoC2sTch5bYuxNZt4tCO3QvvbcCt4VxGN9VoJVHjbU8kOqzouRaqV1Jeig2WAPy5zeBbuvwDUEsDBBQAAAgIAACQn+s1sAq+NAAAADcAAAASACQAZ3JhcGgwX2VkaXRvci5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1bKyU/OTk1RslIIKSpN1VFQKs7IL3etKClKBAq5JeYUg8QKMsvyS4B8JefUvJLUIqVaAFBLAwQUAAAICAAAkJ/rP/txaWwAAAB5AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDWswBCQx0FpfSixIKMYqAQmFOamQJiRyuZmhgbpyYnJpqappiYJ5mm6ZqlGBkaWRpZpKSmWhqmJiYpxQLVl1QWpPol5qZC9AQklmSkZealZOal67kXZaa4g4xWiq0FAFBLAQItABQAAAgIAACQn+tazVnsBQIAAFgEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACQn+s1sAq+NAAAADcAAAASACQAAAAAAAAAAAAAAFICAABncmFwaDBfZWRpdG9yLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAkJ/rP/txaWwAAAB5AAAACQAkAAAAAAAAAAAAAADaAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAADAAMAHAEAAJEDAAAAAA==
+    dataString: UEsDBBQAAAgIAACQn+v6lAfIBAIAAFkEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1U9lymzAU/RWG5zoDBBw7b4m3diZtPHE6fZali9FYSIyWesn43ysJEYiT8gI659yruxzeYqQawPoFaSri+yj9FsVUiRq0pPiB7xhYMLGg4bQUsl6QHcyE0srCS8QUWEoK7aK5hd6i+Ghf2Z0LOYXQs3tHF/uFgWuQve5rleGYoboBsqFn6MVp0sntlxdyQSBoXN1YMEZVKCTWp8YR8aapQEJseUKR7cvf7+QV0F2lXbXD2OeyVKBDTRKd5lTa8bRJ40ehK5epRmrfFvYXMeOuKdLMl9Qm/fmJH6WeLqWov3f3tg3piuL9CzphpPRgqEN4/rFwww+I7dGWwZ8K+C+xksJwYslXaVyoUZDN++N7a7MK8L7H21KvQNN83k5xMx0n+TjPJ4tRMgmrGiU30/bJo8vFz+Q4Y7TehsDu+HCkKszYQhsm/FamTgLS7u+H7cu7R4VAi7pifyt4RbuhzQKxpFJpS4VhIKPFE+X7laRkqO7wOVX6ida0HbgzjWt7K4x06njhd+GmZPRMSA5ymKQBjpg+re3F+tobV9z/o5YIa9HtLnDdn3UV4uFenyRX1Foc3l2wM5R89Fhc5Le3gBEqCpLfbYtyNCZZmk2zCQGYpoC2sTch5bYuxNZt4tCO3QvvbcCt4VxGN9VoJVHjbU8kOqzouRbDGVFeig2WAPy5TeGJyz9QSwMEFAAACAgAAJCf6zWwCr40AAAANwAAABIAJABncmFwaDBfZWRpdG9yLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVsrJT85OTVGyUggpKk3VUVAqzsgvd60oKUoECrkl5hSDxAoyy/JLgHwl59S8ktQipVoAUEsDBBQAAAgIAACQn+s/+3FpbAAAAHkAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNazAEJDHQWl9KLEgoxioBCYU5qZAmJHK5maGBunJicmmpqmmJgnmabpmqUYGRpZGlmkpKZaGqYmJinFAtWXVBak+iXmpkL0BCSWZKRl5qVk5qXruRdlpriDjFaKrQUAUEsBAi0AFAAACAgAAJCf6/qUB8gEAgAAWQQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJCf6zWwCr40AAAANwAAABIAJAAAAAAAAAAAAAAAUQIAAGdyYXBoMF9lZGl0b3IuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACQn+s/+3FpbAAAAHkAAAAJACQAAAAAAAAAAAAAANkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAMAAwAcAQAAkAMAAAAA
     upgradeData: 
     data_backup: 
     file_cachedStartup: {fileID: 0}
@@ -516,7 +516,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 91821585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: -12.17, z: 0}
+  m_LocalPosition: {x: -11.92, y: -3.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1451,11 +1451,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 430124, guid: d1fdf7cb8551e46cc99005451ec3a95b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -19.1
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 430124, guid: d1fdf7cb8551e46cc99005451ec3a95b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 430124, guid: d1fdf7cb8551e46cc99005451ec3a95b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2597,7 +2597,7 @@ Prefab:
     - target: {fileID: 114000013257867594, guid: efa3ae21c28534abaa862f6249507e33,
         type: 2}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4000013168829722, guid: efa3ae21c28534abaa862f6249507e33, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2605,7 +2605,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013168829722, guid: efa3ae21c28534abaa862f6249507e33, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -11.2
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 4000013168829722, guid: efa3ae21c28534abaa862f6249507e33, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2657,19 +2657,19 @@ Prefab:
     - target: {fileID: 114000013257867594, guid: efa3ae21c28534abaa862f6249507e33,
         type: 2}
       propertyPath: mBehaviorSource.mTaskData.JSONSerialization
-      value: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(0,0)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(-5,110)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Selector\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-106.7001,150.321442)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Patrol\",\n\t\t\t\"Instant\":true,\n\t\t\t\"Disabled\":true,\n\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Inverter\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-101.7001,110.321442)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":3,\n\t\t\t\t\"Name\":\"Inverter\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"WithInSight\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(4.479313,105.321411)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":4,\n\t\t\t\t\t\"Name\":\"With
+      value: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(10,0)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(-5,110)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Selector\",\n\t\t\"Instant\":true,\n\t\t\"AbortTypeabortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-106.7001,150.321442)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Patrol\",\n\t\t\t\"Instant\":true,\n\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Inverter\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-101.7001,110.321442)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":3,\n\t\t\t\t\"Name\":\"Inverter\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"WithInSight\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(4.479313,105.321411)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":4,\n\t\t\t\t\t\"Name\":\"With
         In Sight\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"BehaviorTreebehaviorTree\":0\n\t\t\t\t}]\n\t\t\t},{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(60,230)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":5,\n\t\t\t\t\"Name\":\"Sequence\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"WakeTo\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(-100,110)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":6,\n\t\t\t\t\t\"Name\":\"Wake
         To\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"Transformtarget\":1,\n\t\t\t\t\t\"SingleUpdateRate\":2,\n\t\t\t\t\t\"BehaviorTreebt\":2,\n\t\t\t\t\t\"Singlespeed\":3,\n\t\t\t\t\t\"BooleanpathIsEnd\":false,\n\t\t\t\t\t\"SinglenextWayPointDistance\":3\n\t\t\t\t},{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Wait\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(0,110)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":7,\n\t\t\t\t\t\"Name\":\"Wait\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"SharedFloatwaitTime\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedBoolrandomWait\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"BooleanmValue\":false\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedFloatrandomWaitMin\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedFloatrandomWaitMax\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t}\n\t\t\t\t},{\n\t\t\t\t\t\"Type\":\"WakeTo\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(90,110)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":8,\n\t\t\t\t\t\"Name\":\"Wake
         To\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"Transformtarget\":3,\n\t\t\t\t\t\"SingleUpdateRate\":2,\n\t\t\t\t\t\"BehaviorTreebt\":4,\n\t\t\t\t\t\"Singlespeed\":3,\n\t\t\t\t\t\"BooleanpathIsEnd\":false,\n\t\t\t\t\t\"SinglenextWayPointDistance\":3\n\t\t\t\t},{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Wait\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(170.439941,105.667542)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":9,\n\t\t\t\t\t\"Name\":\"Wait\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"SharedFloatwaitTime\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedBoolrandomWait\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"BooleanmValue\":false\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedFloatrandomWaitMin\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t},\n\t\t\t\t\t\"SharedFloatrandomWaitMax\":{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\"SinglemValue\":1\n\t\t\t\t\t}\n\t\t\t\t}]\n\t\t\t}]\n\t\t},{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(150.101959,155)\"\n\t\t\t},\n\t\t\t\"ID\":10,\n\t\t\t\"Name\":\"Seek\",\n\t\t\t\"Instant\":true,\n\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"Type\":\"WithInSight\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-70,139.748337)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":11,\n\t\t\t\t\"Name\":\"With
-        In Sight\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"Disabled\":true,\n\t\t\t\t\"BehaviorTreebehaviorTree\":5\n\t\t\t},{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Repeater\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(114.5,134)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":12,\n\t\t\t\t\"Name\":\"Repeater\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"SharedIntcount\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedInt\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"Int32mValue\":1\n\t\t\t\t},\n\t\t\t\t\"SharedBoolrepeatForever\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"BooleanmValue\":true\n\t\t\t\t},\n\t\t\t\t\"SharedBoolendOnFailure\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"BooleanmValue\":true\n\t\t\t\t},\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(3.43353271,107.730164)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":13,\n\t\t\t\t\t\"Name\":\"Sequence\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\"Type\":\"FollowTarget_Walk\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(0,110)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":14,\n\t\t\t\t\t\t\"Name\":\"Follow
-        Target   Walk\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"GameObjecttarget\":6,\n\t\t\t\t\t\t\"SingleUpdateRate\":2,\n\t\t\t\t\t\t\"BooleanisGrounded\":true,\n\t\t\t\t\t\t\"TransformgroundCheck\":7,\n\t\t\t\t\t\t\"LayerMaskwhatIsGround\":768,\n\t\t\t\t\t\t\"Singleflyspeed\":600,\n\t\t\t\t\t\t\"Singlewalkspeed\":6,\n\t\t\t\t\t\t\"ForceMode2DfMode\":\"Force\",\n\t\t\t\t\t\t\"BooleanpathIsEnd\":false,\n\t\t\t\t\t\t\"SinglenextWayPointDistance\":3,\n\t\t\t\t\t\t\"BehaviorTreebt\":8\n\t\t\t\t\t},{\n\t\t\t\t\t\t\"Type\":\"Shoot_A\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(136.8056,114.909973)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":15,\n\t\t\t\t\t\t\"Name\":\"Shoot
-        \  A\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"SingleminDamage\":8,\n\t\t\t\t\t\t\"SinglemaxDamage\":12,\n\t\t\t\t\t\t\"BehaviorTreebt\":9,\n\t\t\t\t\t\t\"Int32layerMask_Self\":-4097,\n\t\t\t\t\t\t\"SingleshootRange\":10\n\t\t\t\t\t}]\n\t\t\t\t}]\n\t\t\t}]\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\"Name\":\"PIS\",\n\t\t\"IsShared\":true,\n\t\t\"BooleanmValue\":false\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"Target\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"NextPlatform\",\n\t\t\"IsShared\":true\n\t}]\n}"
+        In Sight\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"BehaviorTreebehaviorTree\":5\n\t\t\t},{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Repeater\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(114.5,134)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":12,\n\t\t\t\t\"Name\":\"Repeater\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"SharedIntcount\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedInt\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"Int32mValue\":1\n\t\t\t\t},\n\t\t\t\t\"SharedBoolrepeatForever\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"BooleanmValue\":true\n\t\t\t\t},\n\t\t\t\t\"SharedBoolendOnFailure\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"BooleanmValue\":true\n\t\t\t\t},\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(3.43353271,107.730164)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":13,\n\t\t\t\t\t\"Name\":\"Sequence\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"AbortTypeabortType\":\"None\",\n\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\"Type\":\"FollowTarget_Walk\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(0,110)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":14,\n\t\t\t\t\t\t\"Name\":\"Follow
+        Target   Walk\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"SingleUpdateRate\":2,\n\t\t\t\t\t\t\"BooleanisGrounded\":true,\n\t\t\t\t\t\t\"TransformgroundCheck\":6,\n\t\t\t\t\t\t\"LayerMaskwhatIsGround\":768,\n\t\t\t\t\t\t\"Singleflyspeed\":600,\n\t\t\t\t\t\t\"Singlewalkspeed\":6,\n\t\t\t\t\t\t\"ForceMode2DfMode\":\"Force\",\n\t\t\t\t\t\t\"BooleanpathIsEnd\":false,\n\t\t\t\t\t\t\"SinglenextWayPointDistance\":3,\n\t\t\t\t\t\t\"BehaviorTreebt\":7\n\t\t\t\t\t},{\n\t\t\t\t\t\t\"Type\":\"Shoot_A\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(136.8056,114.909973)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":15,\n\t\t\t\t\t\t\"Name\":\"Shoot
+        \  A\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"SingleminDamage\":8,\n\t\t\t\t\t\t\"SinglemaxDamage\":12,\n\t\t\t\t\t\t\"BehaviorTreebt\":8,\n\t\t\t\t\t\t\"Int32layerMask_Self\":-4097,\n\t\t\t\t\t\t\"SingleshootRange\":10\n\t\t\t\t\t}]\n\t\t\t\t}]\n\t\t\t}]\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\"Name\":\"PIS\",\n\t\t\"IsShared\":true,\n\t\t\"BooleanmValue\":false\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"Target\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"NextPlatform\",\n\t\t\"IsShared\":true\n\t}]\n}"
       objectReference: {fileID: 0}
     - target: {fileID: 114000013257867594, guid: efa3ae21c28534abaa862f6249507e33,
         type: 2}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[6]
       value: 
-      objectReference: {fileID: 131342, guid: d1fdf7cb8551e46cc99005451ec3a95b, type: 2}
+      objectReference: {fileID: 1898281396}
     - target: {fileID: 114000013257867594, guid: efa3ae21c28534abaa862f6249507e33,
         type: 2}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[8]
@@ -2679,7 +2679,7 @@ Prefab:
         type: 2}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[7]
       value: 
-      objectReference: {fileID: 1898281396}
+      objectReference: {fileID: 2021462150}
     - target: {fileID: 114000013257867594, guid: efa3ae21c28534abaa862f6249507e33,
         type: 2}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[9]
@@ -2689,6 +2689,16 @@ Prefab:
         type: 2}
       propertyPath: m_GravityScale
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013297034324, guid: efa3ae21c28534abaa862f6249507e33,
+        type: 2}
+      propertyPath: drawGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013297034324, guid: efa3ae21c28534abaa862f6249507e33,
+        type: 2}
+      propertyPath: detailedGizmos
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: efa3ae21c28534abaa862f6249507e33, type: 2}
@@ -3144,7 +3154,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2053561581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.59, y: -12.33, z: 0}
+  m_LocalPosition: {x: -27.17, y: -3.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

@@ -48,7 +48,7 @@ public class FollowTarget_Walk : Action
 
 	public override void OnStart(){
 		//		seeker.StartPath (transform.position, target.position, OnPathComplete);
-//		target = (GameObject)bt.GetVariable ("Target").GetValue ();
+		target = (GameObject)bt.GetVariable ("Target").GetValue ();
 		if (counter == 0) {
 			StartCoroutine ("UpdatePath"); 
 			counter = 1;
@@ -93,7 +93,8 @@ public class FollowTarget_Walk : Action
 		//if not on ground, then fly to the 
 		if(isGrounded){
 			jumping = false;
-			float _vx = target.transform.position.x - transform.position.x;
+//			float _vx = target.transform.position.x - transform.position.x;
+			float _vx = dir.x;
 			_vx = _vx / Mathf.Abs (_vx);
 			rb.velocity = new Vector2(_vx * walkspeed, rb.velocity.y);
 		}else{
@@ -111,6 +112,7 @@ public class FollowTarget_Walk : Action
 
 			dir *= flyspeed * Time.fixedDeltaTime;
 			rb.AddForce (dir, fMode);
+			Debug.Log ("Force: " + dir + "added");
 		}
 
 
@@ -132,10 +134,10 @@ public class FollowTarget_Walk : Action
 		}
 
 
-		/*if (!(bool)bt.GetVariable ("PIS").GetValue ()) {
+		if (!(bool)bt.GetVariable ("PIS").GetValue ()) {
 			currentWayPoint = 0;
 			return TaskStatus.Failure;
-		}*/
+		}
 
 		return TaskStatus.Running;
 	}
@@ -170,7 +172,7 @@ public class FollowTarget_Walk : Action
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
+	override public void  OnCollisionEnter2D(Collision2D other)
 	{
 		Debug.Log ("On Collision Enter, layer is: "+other.gameObject.layer+". I am "+jumping+" jumping");
 		if (other.gameObject.layer == 9 && jumping) {

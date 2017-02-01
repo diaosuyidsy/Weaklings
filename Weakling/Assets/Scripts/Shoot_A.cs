@@ -71,7 +71,6 @@ public class Shoot_A : Action
 		Debug.Log (hitPoint.collider.tag);
 		if (hitPoint.collider.tag == "Player") {
 			Target.SendMessage ("takeDamage", Random.Range (minDamage, maxDamage));
-			Debug.Log ("Actual dealt damage");
 		} else {
 			sightBlocked = true;
 		}

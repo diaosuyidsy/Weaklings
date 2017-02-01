@@ -12,5 +12,11 @@ public class SetCollider : MonoBehaviour {
 	{
 		col = other.collider.gameObject;
 		soldierTree.SetVariableValue ("NextPlatform", col);
+		other.collider.gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
+	}
+
+	void OnCollisionExit2D(Collision2D other)
+	{
+		other.collider.gameObject.GetComponent<SpriteRenderer> ().color = Color.black;
 	}
 }
